@@ -36,7 +36,7 @@ public class ImpostoJava {
         System.out.println();
         System.out.println("RELATÓRIO DE IMPOSTO DE RENDA\n");
         System.out.print("CONSOLIDADO DE RENDA:\n");
-        System.out.printf("Imposto sobre salário: %.2f\n",getImpostoSalario(rendaAnual));
+        System.out.printf("Imposto sobre salário: %.2f\n", getImpostoSalario(rendaAnual));
         System.out.printf("Imposto sobre serviços: %.2f\n",getImpostoPrestacao(rendaAnualPrestacaoServico));
         System.out.printf("Imposto sobre ganho de capital: %.2f\n",getImpostoCapital(rendaAnualCapital));
         System.out.println();
@@ -51,13 +51,13 @@ public class ImpostoJava {
     }
 
     public static double getImpostoSalario(double salario){
-        double imposto = 0;
-        if (salario <= 3000.0) {
-            return imposto = salario * 0 / 12;
-        } else if (salario > 3000.0 && salario <= 5000.0) {
-            return imposto = salario * 1.1 / 12;
+        double salMensal = salario / 12;
+        if (salMensal <= 3000.0) {
+            return salario * 0;
+        } else if (salMensal > 3000.0 && salMensal <= 5000.0) {
+            return salario * 0.1;
         } else {
-            return imposto = salario * 1.2 / 12;
+            return salario * 0.2;
         }
     }
 
