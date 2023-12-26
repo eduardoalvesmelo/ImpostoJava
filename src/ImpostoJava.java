@@ -25,8 +25,13 @@ public class ImpostoJava {
         double gastoDedutivel = gastoMedico + gastoEdu;
 
         double impostoBrutoTotal = getImpostoSalario(rendaAnual) + getImpostoPrestacao(rendaAnualPrestacaoServico) + getImpostoCapital(rendaAnualCapital);
+        double abatimento = 0.0;
 
-        if ((gastoMedico + gastoEdu >= (ttlDeducao))
+        if ((gastoMedico + gastoEdu) >= ttlDeducao) {
+            abatimento = ttlDeducao;
+        } else {
+            abatimento = (gastoMedico + gastoEdu);
+        }
 
         System.out.println();
         System.out.println("RELATÓRIO DE IMPOSTO DE RENDA\n");
@@ -41,8 +46,8 @@ public class ImpostoJava {
         System.out.println();
         System.out.println("RESUMO:");
         System.out.printf("Imposto bruto total: %.2f\n",impostoBrutoTotal);
-        System.out.printf("Abatimento: %.2f:\n",gastoDedutivel);
-        System.out.printf("Imposto devido: %.2f:\n",gastoDedutivel);
+        System.out.printf("Abatimento: %.2f:\n",abatimento);
+        System.out.printf("Imposto devido: %.2f:\n",impostoBrutoTotal-abatimento);
     }
 
     public static double getImpostoSalario(double salario){
